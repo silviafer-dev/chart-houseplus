@@ -25,7 +25,7 @@ const mockDataSlice = createSlice({
       })
       .addCase(fetchMockData.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.mockData = state.mockData.concat(action.payload);
+        state.mockData = action.payload;
       })
       .addCase(fetchMockData.rejected, (state, action) => {
         state.status = "failed";
