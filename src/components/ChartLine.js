@@ -40,6 +40,7 @@ export const ChartLine = () => {
       text: "Page data",
       align: "left",
     },
+
     dataLabels: {
       enabled: false,
       offsetY: 0,
@@ -57,26 +58,19 @@ export const ChartLine = () => {
         let name = values.nomeLine;
         let data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];
 
-        return (
-          '<div><div class="name-month">' +
-          data.x +
-          "</div>" +
-          "<div>" +
-          name +
-          ": " +
-          data.y +
-          " </div></div>" +
-          '<button class="button-tooltip"> Apri </button>' +
-          "</div>"
-        );
+        return `<div><div class="name-month"> 
+          ${data.x}
+          </div>
+          <div>
+          ${name}
+          : 
+          ${data.y}
+          </div></div>
+          <button class="button-tooltip"> Apri </button>
+          </div>`;
       },
       fillSeriesColor: false,
       theme: "light",
-      style: {
-        fontSize: "12px",
-        fontFamily: undefined,
-        backgroundColor: "white",
-      },
     },
   };
 
