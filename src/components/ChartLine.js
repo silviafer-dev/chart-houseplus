@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Chart from "react-apexcharts";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,10 +22,61 @@ export const ChartLine = () => {
   ];
   const options = {
     chart: {
-      id: "basic-line",
+      events: {
+        dataPointMouseEnter: true,
+        click(event, chartContext, config) {
+          // console.log(config.config.series[config.seriesIndex]);
+          console.log(config.config.series[config.seriesIndex].name);
+          console.log(
+            config.config.series[config.seriesIndex].data[config.dataPointIndex]
+          );
+        },
+      },
+      xaxis: {
+        type: "category",
+      },
     },
-    xaxis: {
-      type: "category",
+    title: {
+      text: "Page data",
+      align: "left",
+    },
+    dataLabels: {
+      enabled: false,
+      offsetY: 0,
+      style: {
+        fontSize: "20px",
+        colors: ["#d3d3d3"],
+      },
+    },
+    tooltip: {
+      enabled: true,
+      shared: true,
+      followCursor: true,
+      intersect: false,
+      custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        let name = values.nomeLine;
+        let data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];
+
+        return (
+          '<div><div class="name-month">' +
+          data.x +
+          "</div>" +
+          "<div>" +
+          name +
+          ": " +
+          data.y +
+          " </div></div>" +
+          '<button class="button-tooltip"> Apri </button>' +
+          "</div>"
+        );
+      },
+      fillSeriesColor: false,
+      theme: "light",
+      style: {
+        fontSize: "12px",
+        fontFamily: undefined,
+        backgroundColor: "white",
+      },
     },
   };
 
