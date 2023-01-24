@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMockData, selectState } from "./chartSlice";
 
 export const Chart = () => {
-  const data = useSelector(selectState);
+  const values = useSelector(selectState);
 
   const dispatch = useDispatch();
 
@@ -11,6 +11,23 @@ export const Chart = () => {
     dispatch(fetchMockData());
   }, [dispatch]);
 
-  console.log(data);
-  return <div>Chart</div>;
+//   console.log(values);
+
+   if (!values.data) {
+     return null;
+   }
+
+  return (
+    <div>
+      <div>Chart</div>
+      <div>{values?.nomeLine}</div>
+       {/* {values && values.data.map((el) => (
+            <div key={el.mese}>
+              <div>{el.mese}</div>
+              <div>{el.valore}</div>
+            </div>
+          ))
+        }  */}
+    </div>
+  );
 };
