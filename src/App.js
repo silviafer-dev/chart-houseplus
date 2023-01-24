@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Chart } from "./features/chart/Chart";
+import { ChartLine } from "./components/ChartLine";
 
 function App() {
   return (
     <div className="App">
-      <Chart />
+      <ChartLine />
     </div>
   );
 }
