@@ -7,7 +7,12 @@
 body {
   min-width: 320px;
 }
+#custom-tooltip {
+  pointer-events: auto;
+}
 .apexcharts-tooltip {
+  pointer-events: auto;
+  opacity: 1 !important;
   font-family: Helvetica, Arial, sans-serif;
   justify-content: space-between;
   width: 100px;
@@ -15,14 +20,49 @@ body {
 }
 .name-month {
   background-color: rgb(230, 227, 227);
+  text-transform: capitalize;
   padding: 5px;
   border: 1px solid lightgray;
   font-weight: 500;
 }
 .button-tooltip {
+  display: flex;
+  cursor: pointer;
+  width: 95%;
+  align-items: center;
   background-color: rgb(25, 25, 25);
   color: white;
-  padding: 7px;
+  padding: 6px;
   margin: 2px;
-  border-radius: 3px;
+  border-radius: 10px;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 400;
+}
+.container {
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.modal {
+  position: fixed;
+  border-radius: 20px;
+  width: 400px;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  z-index: 1000;
+}
+.overlay-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
