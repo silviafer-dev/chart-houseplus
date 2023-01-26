@@ -1,0 +1,17 @@
+.header-container {
+  margin: 0 auto;
+  margin-top : 20px;
+  border-radius: 20px 20px 0 0;
+  width: 70%;
+  background: rgb(0, 112, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 112, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.header-title {
+  text-align: center;
+  padding: 30px;
+}

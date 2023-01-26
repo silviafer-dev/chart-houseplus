@@ -71,7 +71,7 @@ export const ChartLine = () => {
       // },
     },
     title: {
-      text: "Page month / value",
+      text: "Grafico mese/valore",
       align: "left",
     },
 
