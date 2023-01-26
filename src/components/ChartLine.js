@@ -12,9 +12,7 @@ export const ChartLine = () => {
   const [dataTool, setDataTool] = useState({});
 
   const dispatch = useDispatch();
-  function openModal() {
-    setIsOpen(true);
-  }
+
 
   useEffect(() => {
     dispatch(fetchMockData());
@@ -26,8 +24,7 @@ export const ChartLine = () => {
   button.innerHTML = `
         <img src="${open}" alt="open-icon" width=20px color="white" />Apri`;
   button.onclick = function () {
-    console.log("firrr");
-    // setIsOpen(true);
+    setIsOpen(true);
   };
 
   // const div = document.createElement("div");
@@ -169,7 +166,6 @@ export const ChartLine = () => {
         width="600"
         height="500"
       />
-      <button onClick={() => setIsOpen(true)}>Button</button>
     </div>
   );
 };

@@ -6,7 +6,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <ChartLine />;
+      <ChartLine />
     </>
   );
 };
