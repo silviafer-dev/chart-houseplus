@@ -1,0 +1,53 @@
+#custom-tooltip {
+  pointer-events: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.container-chart {
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.apexcharts-canvas {
+  margin: 0 auto;
+}
+
+.apexcharts-tooltip {
+  pointer-events: auto;
+  opacity: 1 !important;
+  font-family: Helvetica, Arial, sans-serif;
+  /* justify-content: space-between; */
+  width: fit-content;
+  height: 130px;
+}
+.name-month {
+  background-color: rgb(230, 227, 227);
+  text-transform: capitalize;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid lightgray;
+  font-weight: 500;
+}
+.value-month {
+  margin: 10px 5px 30px;
+}
+.button-tooltip {
+  pointer-events: auto;
+  display: flex;
+  align-self: center;
+  cursor: pointer;
+  width: 95%;
+  margin-top: 50px;
+  align-items: center;
+  background-color: rgb(25, 25, 25);
+  color: white;
+  padding: 6px;
+  margin: 2px;
+  border-radius: 10px;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 400;
+}
