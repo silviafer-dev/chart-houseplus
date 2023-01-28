@@ -13,7 +13,6 @@ export const ChartLine = () => {
 
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchMockData());
   }, [dispatch]);
@@ -26,10 +25,6 @@ export const ChartLine = () => {
   button.onclick = function () {
     setIsOpen(true);
   };
-
-  // const div = document.createElement("div");
-  // div.innerHTML = `<button class="button-tooltip" onclick="
-  //  ${() => setIsOpen(true)}"><img src=${open} alt="open-icon" width=20px color="white"/>Apri</button>`;
 
   const series = [
     {
@@ -52,20 +47,10 @@ export const ChartLine = () => {
         type: "category",
       },
       events: {
-        click: function () {
+        markerClick: function () {
           setIsOpen(true);
         },
       },
-
-      // events: {
-      //   click: function (event, chartContext, config) {
-      //     // console.log(config.config.series[config.seriesIndex]);
-      //     console.log(config.config.series[config.seriesIndex].name);
-      //     console.log(
-      //       config.config.series[config.seriesIndex].data[config.dataPointIndex]
-      //     );
-      //   },
-      // },
     },
     title: {
       text: "Grafico mese/valore",
@@ -106,8 +91,6 @@ export const ChartLine = () => {
           </div>
           </div>
           `;
-          // <button class="button-tooltip" onclick="console.log('Hello')"><img src="${open}" alt="open-icon" width=20px color="white" />Apri
-          // </button>
 
           customTooltip.appendChild(button);
         } else {
@@ -120,30 +103,14 @@ export const ChartLine = () => {
           ${name}:
           ${data.y}
           </div>
-          
           `;
-          // <button class="button-tooltip" onclick="console.log('Hello')"><img src="${open}" alt="open-icon" width=20px color="white" />Apri
-          // </button>
 
           customTooltip.appendChild(button);
         }
 
         return customTooltip.outerHTML;
-        // `<div><div class="name-month">
-        //   ${data.x}
-        //   </div>
-        //   <div>
-        //   <span style="color: #008FFB;"> ● </span><span>
-        //   ${name}:
-        //   ${data.y}
-        //   </div>
-        //   </div>
-        //   <button class="button-tooltip" onclick=${console.log("Hello")}>
-        //   <img src=${open} alt="open-icon" width=20px color="white"/>
-        //    Apri </button>`;
       },
 
-      //
       fillSeriesColor: false,
       theme: "light",
     },
@@ -156,9 +123,7 @@ export const ChartLine = () => {
         close={() => setIsOpen(false)}
         data={dataTool}
         values={values}
-      >
-        Contenido del modal
-      </Modal>
+      />
       <Chart
         options={options}
         series={series}
