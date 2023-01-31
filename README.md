@@ -1,4 +1,7 @@
-Chart Line create with apexCharts.js
+Chart Line create with apexCharts.js and React/Redux
 
-Data from a static api: https://api-houseplus-test.herokuapp.com/testDev/mockdata
-Open modal with the data and custom tooltip
+[Demo](https://chart-houseplus.vercel.app/)
+
+Data from static api.
+
+Open modal with the data and custom tooltip.
