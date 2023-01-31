@@ -17,7 +17,7 @@ export const ChartLine = () => {
     dispatch(fetchMockData());
   }, [dispatch]);
 
-  const button = document.querySelector("#open-modal-button");
+  let button = document.querySelector("#open-modal-button");
 
   button &&
     button.addEventListener("click", () => {
@@ -48,10 +48,11 @@ export const ChartLine = () => {
       },
       events: {
         dataPointSelection: function (event, chartContext, config) {
-          if (config.dataPointIndex);
+          button = config.dataPointIndex;
+          if (button);
           setIsModalOpen(true);
         },
-    
+      
       },
     },
     title: {
