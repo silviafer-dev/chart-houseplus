@@ -8,8 +8,8 @@ import "../css/chartLine.css";
 
 export const ChartLine = () => {
   const values = useSelector(selectState);
-  const [isOpen, setIsOpen] = useState(false);
-  const [dataTool, setDataTool] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dataModal, setDataModal] = useState({});
 
   const dispatch = useDispatch();
 
@@ -17,14 +17,15 @@ export const ChartLine = () => {
     dispatch(fetchMockData());
   }, [dispatch]);
 
+  useEffect(() => {
+    const button = document.querySelector("#open-modal-button");
+    button &&
+      button.addEventListener("click", () => {
+        setIsModalOpen(true);
+      });
+  }, []);
+
   if (!values.data) return null;
-  const button = document.createElement("button");
-  button.classList = "button-tooltip";
-  button.innerHTML = `
-        <img src="${open}" alt="open-icon" width=20px color="white" />Apri`;
-  button.onclick = function () {
-    setIsOpen(true);
-  };
 
   const series = [
     {
@@ -47,8 +48,8 @@ export const ChartLine = () => {
         type: "category",
       },
       events: {
-        markerClick: function () {
-          setIsOpen(true);
+        click: function () {
+          setIsModalOpen(true);
         },
       },
     },
@@ -72,7 +73,7 @@ export const ChartLine = () => {
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
         let name = values.nomeLine;
         let data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];
-        setDataTool(data);
+        setDataModal(data);
 
         let customTooltip = document.getElementById("custom-tooltip");
 
@@ -90,9 +91,8 @@ export const ChartLine = () => {
           ${data.y}
           </div>
           </div>
+          <button id="open-modal-button" class="button-tooltip" ><img src="${open}" alt="open-icon" width=20px color="white" />Apri</button>
           `;
-
-          customTooltip.appendChild(button);
         } else {
           customTooltip.innerHTML = `
           <div class="name-month">
@@ -103,9 +103,8 @@ export const ChartLine = () => {
           ${name}:
           ${data.y}
           </div>
+          <button id="open-modal-button" class="button-tooltip" ><img src="${open}" alt="open-icon" width=20px color="white" />Apri</button>
           `;
-
-          customTooltip.appendChild(button);
         }
 
         return customTooltip.outerHTML;
@@ -119,9 +118,9 @@ export const ChartLine = () => {
   return (
     <div className="container-chart">
       <Modal
-        open={isOpen}
-        close={() => setIsOpen(false)}
-        data={dataTool}
+        open={isModalOpen}
+        close={() => setIsModalOpen(false)}
+        data={dataModal}
         values={values}
       />
       <Chart
