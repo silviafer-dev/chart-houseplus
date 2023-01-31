@@ -17,13 +17,12 @@ export const ChartLine = () => {
     dispatch(fetchMockData());
   }, [dispatch]);
 
-  useEffect(() => {
-    const button = document.querySelector("#open-modal-button");
-    button &&
-      button.addEventListener("click", () => {
-        setIsModalOpen(true);
-      });
-  }, []);
+  const button = document.querySelector("#open-modal-button");
+
+  button &&
+    button.addEventListener("click", () => {
+      setIsModalOpen(true);
+    });
 
   if (!values.data) return null;
 
@@ -48,9 +47,11 @@ export const ChartLine = () => {
         type: "category",
       },
       events: {
-        click: function () {
+        dataPointSelection: function (event, chartContext, config) {
+          if (config.dataPointIndex);
           setIsModalOpen(true);
         },
+    
       },
     },
     title: {
